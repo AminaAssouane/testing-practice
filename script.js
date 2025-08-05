@@ -66,3 +66,22 @@ export function caesarCipher(str, key) {
   }
   return newStr;
 }
+
+export function analyzeArray(arr) {
+  let length = arr.length;
+  let average = arr.reduce((acc, curr) => acc + curr, 0) / length;
+  let min = arr.reduce((acc, curr) => {
+    if (acc > curr) {
+      acc = curr;
+    }
+    return acc;
+  }, arr[0]);
+  let max = arr.reduce((acc, curr) => {
+    if (acc < curr) {
+      acc = curr;
+    }
+    return acc;
+  }, arr[0]);
+
+  return { average: average, min: min, max: max, length: length };
+}
